@@ -58,3 +58,28 @@ print(soup.find_all("li"))
 
 print(soup.find("li", attrs={"class":"list-item"}))
 
+
+#Extracting Data from HTML Elements
+
+tbody_tag = soup.find("tbody")
+tr_tag_list = tbody_tag.find_all("tr")
+print(tr_tag_list)
+
+tr_tag = tr_tag_list[0]
+print(tr_tag)
+
+img_tag = tr_tag.find("img")
+a_tag = tr_tag.find("a")
+
+nickname_td = tr_tag.find_all("td")[-1]
+desc_td = tr_tag.find_all("td")[-2]
+desc_td.text
+
+nickname_td.text
+nickname_td.get_text(separator=" ", strip=True)
+
+alt_attribute = img_tag["alt"]
+src_attribute = img_tag["src"]
+
+a_tag["href"]
+a_tag["target"]
