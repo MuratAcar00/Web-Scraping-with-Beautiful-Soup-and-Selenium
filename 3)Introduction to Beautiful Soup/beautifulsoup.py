@@ -13,13 +13,14 @@ html = """
     </head>
     <body>
         <h1>Hello, World!</h1>
-        <p>A simple HTML page for testing web scraping with beautifulSoup.</p>
+        <p id="paragraph">A simple HTML page for testing web scraping with beautifulSoup.</p>
         <a class = "link" href = "www.miuul.com" target = "blank" aria-label = "Miuul (Opens Miuul Page)">Click</a>
         <li>Outsider</li>
         <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
+            <li class="list-item">Item 1</li>
+            <li class="list-item">Item 2</li>
         </ul>
+        <li>Outsider 2</li>
     </body>
     </html>
 """
@@ -43,3 +44,17 @@ ul = soup.ul
 print(type(ul))
 
 print(ul.li)
+
+
+#HTML'de gezinme ve arama
+
+soup = BeautifulSoup(html, "html.parser")
+
+soup.a
+soup.find("a", attrs={"class": "link", "target":"blank"})
+print(soup.find("a", attrs={"class": "link", "target":"blank"}))
+
+print(soup.find_all("li"))
+
+print(soup.find("li", attrs={"class":"list-item"}))
+
